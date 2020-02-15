@@ -1,0 +1,11 @@
+<taglib>
+    <tlib-version>1.0</tlib-version>
+    <jsp-version>2.0</jsp-version>
+    <short-name>car tags TLD</short-name>
+
+    <tag>
+        <name>car</name>
+        <tag-class>lab2.CarTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+</taglib>

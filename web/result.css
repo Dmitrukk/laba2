@@ -1,0 +1,19 @@
+body{
+    background: #71c8ff;
+}
+.picture{
+    width: 250px;
+    margin: 40px auto;
+}
+.picture img{
+     width: 100%;
+}
+.information{
+     width: 27%;
+     margin: 0 auto;
+    font-size: 22px;
+ }
+p{
+    text-align: center;
+    font-size: 30px;
+}
