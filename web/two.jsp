@@ -7,6 +7,14 @@
 </head>
 <body>
 
+<%
+    if(request.getParameter("carMark")!=null) {
+        String mark = request.getParameter("carMark");
+        Car car = (Car) session.getAttribute("car");
+        car.setMark(mark);
+    }
+%>
+
 <form action="three.jsp" method="post">
     <p class="title"><b>What color do you want?</b></p>
     <p><input name="color" type="radio" value="white"> white</p>
@@ -16,13 +24,5 @@
     <p><input name="color" type="radio" value="green"> green</p>
     <p><input class="button" type="submit" value="Choose"></p>
 </form>
-<%
-    if(request.getParameter("color")!=null) {
-        String color = request.getParameter("color");
-        Car car = (Car) session.getAttribute("car");
-        car.setColor(color);
-        //response.sendRedirect("lab2/characteristicsPage.jsp");
-    }
-%>
 </body>
 </html>

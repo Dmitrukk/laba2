@@ -8,6 +8,13 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<%
+    if(request.getParameter("color")!=null) {
+        String color = request.getParameter("color");
+        Car car = (Car) session.getAttribute("car");
+        car.setColor(color);
+    }
+%>
 
 <form method="post" action="four.jsp">
     <p class="title"><b>If you require anything else, just сhoose this.</b></p>
@@ -16,15 +23,5 @@
         <input type="checkbox" name="add" value="mechanics">mechanics<Br>
     <p><input class="button" type="submit" value="Send"></p>
 </form>
-<%
-    if (request.getParameter("add") != null) {
-        Car car = (Car) session.getAttribute("car");
-        String select[] = request.getParameterValues("add");
-        car.setCharacteristics(new ArrayList<String>(Arrays.asList(select)));
-
-        //response.sendRedirect("additionalInfoPage.jsp");
-    }
-%>
-
 </body>
 </html>

@@ -8,24 +8,35 @@
 </head>
 
 <body>
+<%
+    if (request.getParameter("additionalInfo") != null) {
+        String additionalInfo = request.getParameter("additionalInfo");
+        out.println("additionalInfo " + additionalInfo);
+        Car car = (Car) session.getAttribute("car");
+        car.setAdditionalInfo(additionalInfo);
+    }
+%>
+
 <p> Your car </p>
-    <div class="picture">
-        <%Car car = (Car) session.getAttribute("car");
-        if (car.color == "white"){%>
-            <img src="img/white.jpg">
-        <%} else if(car.color == "grey"){%>
-            <img src="img/grey.jpg">
-        <%} else if (car.color == "black"){%>
-            <img src="img/black.jpg">
-        <%} else if (car.color =="red"){%>
-            <img src="img/red.png">
-        <%} else if (car.color =="green"){%>
-            <img src="img/green.png">
-        <%}%>
-    </div>
+<div class="picture">
+    <%
+        Car car = (Car) session.getAttribute("car");
+        if (car.color.equals("white")) {
+    %>
+    <img src="img/white.jpg" width="600px" height="400px">
+    <%} else if (car.color.equals("grey")) {%>
+    <img src="img/grey.jpg" width="600px" height="400px">
+    <%} else if (car.color.equals("black")) {%>
+    <img src="img/black.jpg" width="600px" height="400px">
+    <%} else if (car.color.equals("red")) {%>
+    <img src="img/red.png" width="600px" height="400px">
+    <%} else if (car.color.equals("green")) {%>
+    <img src="img/green.png" width="600px" height="400px">
+    <%}%>
+</div>
 
 <hr>
-    <c:car/>
+<c:car/>
 <hr>
 </body>
 </html>
